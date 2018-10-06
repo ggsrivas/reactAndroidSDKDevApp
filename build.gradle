@@ -20,7 +20,7 @@ allprojects {
         google()
         jcenter()
         maven {
-            url "https://raw.githubusercontent.com/ggsrivas/reactandroid/master/"
+            url "https://raw.githubusercontent.com/ggsrivas/reactandroidmaven/master/"
         }
     }
 }

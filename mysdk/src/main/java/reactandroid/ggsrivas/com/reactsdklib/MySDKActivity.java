@@ -16,12 +16,12 @@ public class MySDKActivity extends AppCompatActivity implements DefaultHardwareB
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_react);
         mReactRootView = new ReactRootView(this);
         mReactInstanceManager = ReactInstanceManager.builder()
                 .setApplication(getApplication())
                 .setBundleAssetName("index.android.bundle")
                 .addPackage(new MainReactPackage())
+                .addPackage(new MyReactPackage())
                 .setUseDeveloperSupport(BuildConfig.DEBUG)
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 .build();
@@ -30,6 +30,8 @@ public class MySDKActivity extends AppCompatActivity implements DefaultHardwareB
         mReactRootView.startReactApplication(mReactInstanceManager, "MyReactNativeApp", null);
 
         setContentView(mReactRootView);
+
+        MySDK.getInstance().setMyActivityWeakReference(this);
     }
 
     @Override
